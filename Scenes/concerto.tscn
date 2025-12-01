@@ -32,7 +32,7 @@ zoom = Vector2(2, 2)
 [node name="crowdContainer7" type="Node2D" parent="."]
 position = Vector2(25, -150)
 script = ExtResource("5_ott4h")
-base_delay = 0.08
+base_delay = 0.0
 
 [node name="Crowd13" parent="crowdContainer7" instance=ExtResource("2_uofcs")]
 position = Vector2(-288, 0)
@@ -75,7 +75,7 @@ position = Vector2(288, 0)
 [node name="crowdContainer6" type="Node2D" parent="."]
 position = Vector2(0, -100)
 script = ExtResource("5_ott4h")
-base_delay = 0.09
+base_delay = 0.3
 
 [node name="Crowd13" parent="crowdContainer6" instance=ExtResource("2_uofcs")]
 position = Vector2(-288, 0)
@@ -118,7 +118,7 @@ position = Vector2(288, 0)
 [node name="crowdContainer5" type="Node2D" parent="."]
 position = Vector2(25, -50)
 script = ExtResource("5_ott4h")
-base_delay = 0.1
+base_delay = 0.5
 
 [node name="Crowd13" parent="crowdContainer5" instance=ExtResource("2_uofcs")]
 position = Vector2(-288, 0)
@@ -161,6 +161,8 @@ position = Vector2(288, 0)
 [node name="Player2" parent="." instance=ExtResource("3_ott4h")]
 
 [node name="CrowdContainer" type="Node2D" parent="."]
+script = ExtResource("5_ott4h")
+base_delay = 0.7
 
 [node name="Crowd10" parent="CrowdContainer" instance=ExtResource("2_uofcs")]
 position = Vector2(-240, 0)
@@ -392,7 +394,6 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Dialogue" type="Label" parent="UI"]
-modulate = Color(0, 0, 0, 1)
 layout_mode = 0
 offset_left = -179.0
 offset_top = 111.0

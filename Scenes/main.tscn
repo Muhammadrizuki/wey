@@ -99,10 +99,13 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TriggerContainer2" type="Node2D" parent="."]
+visible = false
 
 [node name="TriggerContainer3" type="Node2D" parent="."]
+visible = false
 
 [node name="TriggerContainer4" parent="." instance=ExtResource("5_6bp64")]
+visible = false
 
 [node name="PointTrigger" type="StaticBody2D" parent="."]
 

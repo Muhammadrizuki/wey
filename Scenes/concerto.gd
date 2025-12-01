@@ -10,6 +10,8 @@ extends Node2D
 @onready var point_light_2d_4: PointLight2D = $PointLight2D4
 @onready var dialogue: Label = $UI/Dialogue
 
+var cooldown := 0.0
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	audio_stream_player.stream =load("res://Audio/black.mp3")
@@ -30,7 +32,10 @@ func _ready() -> void:
 	concert_start()
 
 func _process(delta: float) -> void:
-	pass
+	if cooldown > 0:
+		cooldown -= delta
+	else:
+		random()
 
 func start(container, point_a, point_b, duration):
 	container.position += point_a
@@ -53,13 +58,26 @@ func concert_start():
 	audio_stream_player.play()
 	#start(trigger_container, Vector2(-50000, 0), Vector2(50000, 0), 305)
 	
-	await get_tree().create_timer(305).timeout
+	await get_tree().create_timer(290).timeout
 	dialogue.text = "Thanks for Playing"
 	await get_tree().create_timer(3).timeout
-	dialogue.text = "This song by [name here]"
+	dialogue.text = "This song by Suisei from HOLOLIVE JP"
 	await get_tree().create_timer(3).timeout
 	dialogue.text = "Hope you like it"
 	await get_tree().create_timer(3).timeout
 	dialogue.text = "Goodbye"
 	
+func random():
+	var randomize = randi_range(0, 1)
+	
+	if randomize == 1:
+		print("1")
+		get_tree().call_group("Crowd", "new_animating", 2)
+		cooldown = 10
+	else:
+		print("2")		
+		get_tree().call_group("Crowd", "new_animating", 1)
+		cooldown = 5
+
+		
 	
