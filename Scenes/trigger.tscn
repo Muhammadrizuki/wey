@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://b50jehcc8jt20"]
+
+[ext_resource type="Script" uid="uid://ce02l68eaasm7" path="res://Scripts/trigger.gd" id="1_vcq5i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qcxdk"]
+size = Vector2(10, 10)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vcq5i"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ueehy"]
+
+[node name="Trigger" type="Area2D"]
+script = ExtResource("1_vcq5i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qcxdk")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+modulate = Color(1, 0.00784314, 0, 1)
+scale = Vector2(10, 10)
+mesh = SubResource("BoxMesh_vcq5i")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = -46.0
+offset_top = -28.0
+offset_right = 46.0
+offset_bottom = -5.0
+theme_override_font_sizes/font_size = 9
+text = "Placeholder"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="."]
+modulate = Color(0, 0, 1, 1)
+position = Vector2(2.5, 2.38419e-07)
+scale = Vector2(5, 10)
+mesh = SubResource("BoxMesh_ueehy")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

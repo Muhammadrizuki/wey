@@ -1,0 +1,116 @@
+[gd_scene load_steps=9 format=3 uid="uid://bh6qtatbly8ah"]
+
+[ext_resource type="Script" uid="uid://sdi8fk2f21kd" path="res://Scripts/main.gd" id="1_21xkr"]
+[ext_resource type="PackedScene" uid="uid://dtbnixuw00kh2" path="res://Scenes/player.tscn" id="1_jjgbg"]
+[ext_resource type="PackedScene" uid="uid://cmpltitkpy32y" path="res://Scenes/crowd.tscn" id="3_jjvhh"]
+[ext_resource type="PackedScene" uid="uid://csqop523dsskx" path="res://trigger_container_4.tscn" id="5_6bp64"]
+[ext_resource type="AudioStream" uid="uid://2j6rqmjbg2bn" path="res://Audio/concert.mp3" id="6_21xkr"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_kry3j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6bp64"]
+size = Vector2(1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6bp64"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_21xkr")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_21xkr")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+position = Vector2(7.99998, 17.5)
+scale = Vector2(678, 433)
+mesh = SubResource("BoxMesh_kry3j")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("1_jjgbg")]
+
+[node name="CrowdContainer" type="Node2D" parent="."]
+
+[node name="Crowd" parent="CrowdContainer" instance=ExtResource("3_jjvhh")]
+visible = false
+position = Vector2(48, 0)
+delay = 0.5
+
+[node name="Crowd2" parent="CrowdContainer" instance=ExtResource("3_jjvhh")]
+visible = false
+position = Vector2(-48, 0)
+delay = 0.4
+
+[node name="Crowd3" parent="CrowdContainer" instance=ExtResource("3_jjvhh")]
+visible = false
+position = Vector2(96, 0)
+delay = 0.6
+
+[node name="Crowd4" parent="CrowdContainer" instance=ExtResource("3_jjvhh")]
+visible = false
+position = Vector2(-96, 0)
+delay = 0.3
+
+[node name="Crowd5" parent="CrowdContainer" instance=ExtResource("3_jjvhh")]
+visible = false
+position = Vector2(144, 0)
+delay = 0.7
+
+[node name="Crowd6" parent="CrowdContainer" instance=ExtResource("3_jjvhh")]
+visible = false
+position = Vector2(-144, 0)
+delay = 0.2
+
+[node name="Crowd7" parent="CrowdContainer" instance=ExtResource("3_jjvhh")]
+visible = false
+position = Vector2(192, 0)
+delay = 0.8
+
+[node name="Crowd8" parent="CrowdContainer" instance=ExtResource("3_jjvhh")]
+visible = false
+position = Vector2(-192, 0)
+delay = 0.1
+
+[node name="Crowd9" parent="CrowdContainer" instance=ExtResource("3_jjvhh")]
+visible = false
+position = Vector2(240, 0)
+delay = 0.9
+
+[node name="Crowd10" parent="CrowdContainer" instance=ExtResource("3_jjvhh")]
+visible = false
+position = Vector2(-240, 0)
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Dialogue" type="Label" parent="UI"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -179.0
+offset_top = 111.0
+offset_right = 181.0
+offset_bottom = 156.0
+theme_override_font_sizes/font_size = 11
+text = "lorem ipsum dolor sit amet"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TriggerContainer2" type="Node2D" parent="."]
+
+[node name="TriggerContainer3" type="Node2D" parent="."]
+
+[node name="TriggerContainer4" parent="." instance=ExtResource("5_6bp64")]
+
+[node name="PointTrigger" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PointTrigger"]
+position = Vector2(0, 200)
+shape = SubResource("RectangleShape2D_6bp64")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="PointTrigger"]
+modulate = Color(0, 0.95, 0.1425, 1)
+position = Vector2(0, 200)
+mesh = SubResource("BoxMesh_6bp64")

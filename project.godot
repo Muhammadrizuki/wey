@@ -1,0 +1,31 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="waves"
+run/main_scene="uid://bh6qtatbly8ah"
+config/features=PackedStringArray("4.4", "Forward Plus")
+config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*res://Scripts/global.gd"
+
+[global_group]
+
+Crowd=""
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+shading/canvas_textures/default_texture_filter=1
+shading/size/viewport_width=576
+shading/size/viewport_height=324
